@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.votre-domaine.ma/sitemap.xml
+Sitemap: https://kinedomicile.pro/sitemap.xml
