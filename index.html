@@ -439,6 +439,15 @@
   .float-btn.tel{ background:var(--gold); color:#fff; }
   .float-btn svg{ width:24px; height:24px; }
   @media (min-width:881px){ .float-actions{ display:none; } }
+.hero-carousel{
+  position:relative; z-index:1; width:82%; aspect-ratio:4/3; border-radius:18px; overflow:hidden;
+  box-shadow:0 14px 30px rgba(27,48,42,0.22);
+}
+.hero-carousel-img{
+  position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+  opacity:0; transition:opacity 1.4s ease-in-out;
+}
+.hero-carousel-img.active{ opacity:1; }
 </style>
 </head>
 <body>
@@ -774,6 +783,18 @@
     });
   });
 </script>
-
+<script>
+  (function(){
+    const slides = document.querySelectorAll('.hero-carousel-img');
+    if(slides.length > 1){
+      let current = 0;
+      setInterval(() => {
+        slides[current].classList.remove('active');
+        current = (current + 1) % slides.length;
+        slides[current].classList.add('active');
+      }, 4000);
+    }
+  })();
+</script>
 </body>
 </html>
