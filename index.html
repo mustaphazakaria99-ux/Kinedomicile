@@ -266,53 +266,81 @@
     header.open .mobile-panel{ display:flex; }
   }
 
-  /* ---------- hero ---------- */
+  /* ---------- hero (slider plein écran) ---------- */
   .hero{
-    padding:76px 0 64px;
     position:relative;
     overflow:hidden;
   }
-  .hero-grid{
-    display:grid; grid-template-columns:1.1fr 0.9fr; gap:56px; align-items:center;
-  }
-  .hero-kicker{
-    font-size:1rem; color:var(--pine); font-weight:600; margin-bottom:18px;
-    display:flex; align-items:center; gap:10px;
-  }
-  .hero-kicker .pin{ width:7px; height:7px; border-radius:50%; background:var(--gold); display:inline-block; }
-  .hero h1{
-    font-size:clamp(2.4rem, 4.6vw, 3.9rem);
-    color:var(--pine-dark);
-    opacity:0; transform:translateY(14px);
-    animation:riseIn .7s ease forwards .05s;
-  }
-  .hero p.lead{
-    margin-top:22px; font-size:1.13rem; color:rgba(27,36,32,0.78); max-width:46ch;
-    opacity:0; transform:translateY(14px);
-    animation:riseIn .7s ease forwards .2s;
-  }
-  .hero-actions{
-    margin-top:34px; display:flex; gap:14px; flex-wrap:wrap;
-    opacity:0; transform:translateY(14px);
-    animation:riseIn .7s ease forwards .35s;
-  }
-  .hero-note{
-    margin-top:22px; font-size:0.88rem; color:rgba(27,36,32,0.55);
-    opacity:0; animation:riseIn .7s ease forwards .5s;
-  }
   @keyframes riseIn{ to{ opacity:1; transform:translateY(0); } }
 
-  .hero-art{ position:relative; display:flex; align-items:center; justify-content:center; }
-  .hero-art::before{
-    content:''; position:absolute; inset:0; margin:auto; width:88%; aspect-ratio:1/1;
-    background:var(--sage); border-radius:50%; z-index:0;
+  .hero-slider{
+    position:relative; width:100%; height:82vh; min-height:480px; max-height:720px;
   }
-  .hero-logo-img{ position:relative; z-index:1; width:78%; height:auto; display:block; filter:drop-shadow(0 10px 24px rgba(27,48,42,0.18)); }
+  @media (max-width:880px){ .hero-slider{ height:78vh; min-height:430px; } }
+  @media (max-width:560px){ .hero-slider{ height:88vh; min-height:520px; } }
 
-  @media (max-width:880px){
-    .hero-grid{ grid-template-columns:1fr; }
-    .hero-art{ order:-1; max-width:280px; margin:0 auto 8px; }
+  .hero-slide{
+    position:absolute; inset:0;
+    background-size:cover; background-position:center;
+    opacity:0; visibility:hidden; transition:opacity 1.1s ease-in-out;
+    display:flex; align-items:flex-end;
   }
+  .hero-slide.active{ opacity:1; visibility:visible; z-index:1; }
+  .hero-slide-overlay{
+    position:absolute; inset:0;
+    background:linear-gradient(0deg, rgba(15,26,22,0.82) 0%, rgba(15,26,22,0.45) 46%, rgba(15,26,22,0.12) 100%);
+  }
+  .hero-slide-content{
+    position:relative; z-index:1; width:100%; padding-bottom:64px; color:var(--white);
+  }
+  .hero-badge{
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--gold); color:var(--white); font-weight:700; font-size:0.92rem;
+    padding:9px 20px; border-radius:999px; margin-bottom:20px;
+  }
+  .hero-slide-content h1{
+    font-size:clamp(2rem, 4.4vw, 3.4rem);
+    color:var(--white);
+    max-width:16ch;
+  }
+  .hero-slide-content .lead{
+    margin-top:20px; font-size:1.08rem; color:rgba(255,253,249,0.92); max-width:46ch;
+    padding-left:16px; border-left:3px solid var(--gold);
+  }
+  .hero-slide-content .hero-actions{
+    margin-top:30px; display:flex; gap:14px; flex-wrap:wrap;
+  }
+  @media (max-width:640px){
+    .hero-slide-content .lead{ font-size:0.98rem; }
+    .hero-slide-content .hero-actions{ margin-top:24px; }
+  }
+
+  .hero-arrow{
+    position:absolute; top:50%; transform:translateY(-50%); z-index:2;
+    width:48px; height:48px; border-radius:50%; border:none; cursor:pointer;
+    background:rgba(27,48,42,0.55); color:var(--white);
+    display:flex; align-items:center; justify-content:center;
+    transition:background .2s ease;
+  }
+  .hero-arrow:hover{ background:rgba(27,48,42,0.85); }
+  .hero-arrow svg{ width:20px; height:20px; }
+  .hero-arrow.prev{ left:18px; }
+  .hero-arrow.next{ right:18px; }
+  @media (max-width:640px){
+    .hero-arrow{ width:38px; height:38px; }
+    .hero-arrow.prev{ left:10px; }
+    .hero-arrow.next{ right:10px; }
+  }
+
+  .hero-dots{
+    position:absolute; left:0; right:0; bottom:22px; z-index:2;
+    display:flex; justify-content:center; gap:10px;
+  }
+  .hero-dot{
+    width:9px; height:9px; border-radius:50%; border:none; padding:0; cursor:pointer;
+    background:rgba(255,253,249,0.5); transition:background .2s ease, transform .2s ease;
+  }
+  .hero-dot.active{ background:var(--gold); transform:scale(1.2); }
 
   /* ---------- section shell ---------- */
   section{ padding:88px 0; }
@@ -439,23 +467,6 @@
   .float-btn.tel{ background:var(--gold); color:#fff; }
   .float-btn svg{ width:24px; height:24px; }
   @media (min-width:881px){ .float-actions{ display:none; } }
-.hero-carousel{
-  position:relative; z-index:1; width:82%; aspect-ratio:4/3; border-radius:18px; overflow:hidden;
-  box-shadow:0 14px 30px rgba(27,48,42,0.22);
-}
-/* Fallback pour les navigateurs sans support de aspect-ratio (certains in-app browsers mobiles) */
-@supports not (aspect-ratio: 4/3){
-  .hero-carousel{ height:0; padding-bottom:75%; }
-}
-/* Filet de sécurité supplémentaire : garantit une hauteur minimale visible sur petits écrans */
-@media (max-width:880px){
-  .hero-carousel{ min-height:230px; }
-}
-.hero-carousel-img{
-  position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
-  opacity:0; transition:opacity 1.4s ease-in-out;
-}
-.hero-carousel-img.active{ opacity:1; }
 </style>
 </head>
 <body>
@@ -500,33 +511,105 @@
 
 <!-- ============ HERO ============ -->
 <section class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <div class="hero-kicker"><span class="pin"></span>Kinésithérapeute à domicile — Casablanca</div>
-      <h1>Kiné à domicile à Casablanca<br>La rééducation vient chez vous.</h1>
-      <p class="lead">Des séances de kinésithérapie professionnelles, réalisées directement à votre domicile — dans le confort et le calme de votre propre espace.</p>
-      <div class="hero-actions">
-        <a class="btn btn-gold" href="https://wa.me/212690437155" target="_blank" rel="noopener">
-          Prendre rendez-vous sur WhatsApp
-        </a>
-        <a class="btn btn-outline" href="https://wa.me/212690437155" target="_blank" rel="noopener">
-          Demander une évaluation gratuite
-        </a>
-        <a class="btn btn-outline" href="tel:+212690437155">Appeler maintenant</a>
+  <div class="hero-slider">
+
+    <div class="hero-slide active" role="img" aria-label="Kinésithérapeute aidant un patient à faire des exercices avec bande de résistance" style="background-image:url('images/photo1.jpg')">
+      <div class="hero-slide-overlay"></div>
+      <div class="wrap hero-slide-content">
+        <span class="hero-badge">Kiné à domicile</span>
+        <h1>Retrouvez votre mobilité<br>en toute sérénité</h1>
+        <p class="lead">Exercices de renforcement avec bande de résistance, réalisés chez vous, à Casablanca.</p>
+        <div class="hero-actions">
+          <a class="btn btn-gold" href="https://wa.me/212690437155" target="_blank" rel="noopener">Prendre rendez-vous sur WhatsApp</a>
+          <a class="btn btn-ghost-light" href="tel:+212690437155">Appeler maintenant</a>
+        </div>
       </div>
-      <p class="hero-note">Interventions à Casablanca et communes avoisinantes · Réponse rapide 7j/7</p>
     </div>
-  <div class="hero-art">
-  <div class="hero-carousel">
-    <img class="hero-carousel-img active" src="images/photo1.jpg" alt="Kinésithérapeute aidant un patient à faire des exercices avec bande de résistance">
-    <img class="hero-carousel-img" src="images/photo2.jpg" alt="Kinésithérapeute accompagnant une patiente âgée avec un déambulateur">
-    <img class="hero-carousel-img" src="images/photo3.jpg" alt="Kinésithérapeute aidant une patiente âgée à marcher avec des béquilles">
-    <img class="hero-carousel-img" src="images/photo4.jpg" alt="Exercice de rééducation de la cheville avec bande élastique">
-    <img class="hero-carousel-img" src="images/photo5.jpg" alt="Séance de kinésithérapie : mobilisation de la hanche">
-    <img class="hero-carousel-img" src="images/photo6.jpg" alt="Kinésithérapeute guidant un patient dans un étirement au sol">
+
+    <div class="hero-slide" role="img" aria-label="Kinésithérapeute accompagnant une patiente âgée avec un déambulateur" style="background-image:url('images/photo2.jpg')">
+      <div class="hero-slide-overlay"></div>
+      <div class="wrap hero-slide-content">
+        <span class="hero-badge">Kiné à domicile</span>
+        <h1>Un accompagnement<br>à chaque étape</h1>
+        <p class="lead">Accompagnement à la marche avec déambulateur, chez vous, à Casablanca.</p>
+        <div class="hero-actions">
+          <a class="btn btn-gold" href="https://wa.me/212690437155" target="_blank" rel="noopener">Prendre rendez-vous sur WhatsApp</a>
+          <a class="btn btn-ghost-light" href="tel:+212690437155">Appeler maintenant</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-slide" role="img" aria-label="Kinésithérapeute aidant une patiente âgée à marcher avec des béquilles" style="background-image:url('images/photo3.jpg')">
+      <div class="hero-slide-overlay"></div>
+      <div class="wrap hero-slide-content">
+        <span class="hero-badge">Kiné à domicile</span>
+        <h1>Retrouver son autonomie<br>en toute confiance</h1>
+        <p class="lead">Aide à la marche avec béquilles, dans le confort de votre domicile.</p>
+        <div class="hero-actions">
+          <a class="btn btn-gold" href="https://wa.me/212690437155" target="_blank" rel="noopener">Prendre rendez-vous sur WhatsApp</a>
+          <a class="btn btn-ghost-light" href="tel:+212690437155">Appeler maintenant</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-slide" role="img" aria-label="Exercice de rééducation de la cheville avec bande élastique" style="background-image:url('images/photo4.jpg')">
+      <div class="hero-slide-overlay"></div>
+      <div class="wrap hero-slide-content">
+        <span class="hero-badge">Kiné à domicile</span>
+        <h1>Une rééducation<br>sur mesure</h1>
+        <p class="lead">Rééducation de la cheville, personnalisée selon vos besoins.</p>
+        <div class="hero-actions">
+          <a class="btn btn-gold" href="https://wa.me/212690437155" target="_blank" rel="noopener">Prendre rendez-vous sur WhatsApp</a>
+          <a class="btn btn-ghost-light" href="tel:+212690437155">Appeler maintenant</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-slide" role="img" aria-label="Séance de kinésithérapie : mobilisation de la hanche" style="background-image:url('images/photo5.jpg')">
+      <div class="hero-slide-overlay"></div>
+      <div class="wrap hero-slide-content">
+        <span class="hero-badge">Kiné à domicile</span>
+        <h1>Soulager la douleur,<br>restaurer le mouvement</h1>
+        <p class="lead">Mobilisation de la hanche, réalisée par un kinésithérapeute qualifié.</p>
+        <div class="hero-actions">
+          <a class="btn btn-gold" href="https://wa.me/212690437155" target="_blank" rel="noopener">Prendre rendez-vous sur WhatsApp</a>
+          <a class="btn btn-ghost-light" href="tel:+212690437155">Appeler maintenant</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-slide" role="img" aria-label="Kinésithérapeute guidant un patient dans un étirement au sol" style="background-image:url('images/photo6.jpg')">
+      <div class="hero-slide-overlay"></div>
+      <div class="wrap hero-slide-content">
+        <span class="hero-badge">Kiné à domicile</span>
+        <h1>Des séances personnalisées<br>chez vous, à Casablanca</h1>
+        <p class="lead">Étirements guidés au sol, dans le calme de votre propre espace.</p>
+        <div class="hero-actions">
+          <a class="btn btn-gold" href="https://wa.me/212690437155" target="_blank" rel="noopener">Prendre rendez-vous sur WhatsApp</a>
+          <a class="btn btn-ghost-light" href="tel:+212690437155">Appeler maintenant</a>
+        </div>
+      </div>
+    </div>
+
+    <button class="hero-arrow prev" aria-label="Photo précédente">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    </button>
+    <button class="hero-arrow next" aria-label="Photo suivante">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </button>
+
+    <div class="hero-dots">
+      <button class="hero-dot active" aria-label="Aller à la photo 1"></button>
+      <button class="hero-dot" aria-label="Aller à la photo 2"></button>
+      <button class="hero-dot" aria-label="Aller à la photo 3"></button>
+      <button class="hero-dot" aria-label="Aller à la photo 4"></button>
+      <button class="hero-dot" aria-label="Aller à la photo 5"></button>
+      <button class="hero-dot" aria-label="Aller à la photo 6"></button>
+    </div>
+
   </div>
-</div>
 </section>
+
 
 <!-- ============ SERVICES ============ -->
 <section id="services">
@@ -793,16 +876,38 @@
 </script>
 <script>
   (function(){
-    const slides = document.querySelectorAll('.hero-carousel-img');
-    if(slides.length > 1){
-      let current = 0;
-      setInterval(() => {
-        slides[current].classList.remove('active');
-        current = (current + 1) % slides.length;
-        slides[current].classList.add('active');
-      }, 4000);
+    const slides = document.querySelectorAll('.hero-slide');
+    const dots = document.querySelectorAll('.hero-dot');
+    const prevBtn = document.querySelector('.hero-arrow.prev');
+    const nextBtn = document.querySelector('.hero-arrow.next');
+    if(!slides.length) return;
+
+    let current = 0;
+    let timer = null;
+
+    function goTo(index){
+      slides[current].classList.remove('active');
+      if(dots[current]) dots[current].classList.remove('active');
+      current = (index + slides.length) % slides.length;
+      slides[current].classList.add('active');
+      if(dots[current]) dots[current].classList.add('active');
     }
+
+    function startAutoplay(){
+      timer = setInterval(() => goTo(current + 1), 5000);
+    }
+    function resetAutoplay(){
+      clearInterval(timer);
+      startAutoplay();
+    }
+
+    if(prevBtn) prevBtn.addEventListener('click', () => { goTo(current - 1); resetAutoplay(); });
+    if(nextBtn) nextBtn.addEventListener('click', () => { goTo(current + 1); resetAutoplay(); });
+    dots.forEach((dot, i) => dot.addEventListener('click', () => { goTo(i); resetAutoplay(); }));
+
+    if(slides.length > 1) startAutoplay();
   })();
 </script>
+
 </body>
 </html>
