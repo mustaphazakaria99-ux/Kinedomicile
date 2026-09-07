@@ -9,6 +9,8 @@
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="author" content="Anas Physiotherapy">
 <link rel="canonical" href="https://kinedomicile.pro/">
+<link rel="icon" type="image/jpeg" href="images/photo7.jpeg">
+<link rel="apple-touch-icon" href="images/photo7.jpeg">
 
 <!-- Ciblage local -->
 <meta name="geo.region" content="MA-06">
@@ -277,7 +279,11 @@
     position:relative; width:100%; height:82vh; min-height:480px; max-height:720px;
   }
   @media (max-width:880px){ .hero-slider{ height:78vh; min-height:430px; } }
-  @media (max-width:560px){ .hero-slider{ height:88vh; min-height:520px; } }
+  @media (max-width:560px){ .hero-slider{ height:78vh; min-height:500px; } }
+  .hero-slider::after{
+    content:''; position:absolute; top:0; left:0; right:0; height:60px; z-index:1;
+    background:linear-gradient(180deg, rgba(15,26,22,0.28) 0%, rgba(15,26,22,0) 100%);
+  }
 
   .hero-slide{
     position:absolute; inset:0;
@@ -288,7 +294,7 @@
   .hero-slide.active{ opacity:1; visibility:visible; z-index:1; }
   .hero-slide-overlay{
     position:absolute; inset:0;
-    background:linear-gradient(0deg, rgba(15,26,22,0.82) 0%, rgba(15,26,22,0.45) 46%, rgba(15,26,22,0.12) 100%);
+    background:linear-gradient(0deg, rgba(15,26,22,0.82) 0%, rgba(15,26,22,0.5) 40%, rgba(15,26,22,0.3) 75%, rgba(15,26,22,0.32) 100%);
   }
   .hero-slide-content{
     position:relative; z-index:1; width:100%; padding-bottom:64px; color:var(--white);
@@ -327,7 +333,7 @@
   .hero-arrow.prev{ left:18px; }
   .hero-arrow.next{ right:18px; }
   @media (max-width:640px){
-    .hero-arrow{ width:38px; height:38px; }
+    .hero-arrow{ width:38px; height:38px; top:26%; }
     .hero-arrow.prev{ left:10px; }
     .hero-arrow.next{ right:10px; }
   }
@@ -343,8 +349,8 @@
   .hero-dot.active{ background:var(--gold); transform:scale(1.2); }
 
   /* ---------- section shell ---------- */
-  section{ padding:88px 0; }
-  @media (max-width:640px){ section{ padding:60px 0; } }
+  section:not(.hero){ padding:88px 0; }
+  @media (max-width:640px){ section:not(.hero){ padding:60px 0; } }
   .section-band{ background:var(--sage); }
   .section-dark{ background:var(--pine-dark); color:var(--white); }
   .section-head{ max-width:640px; margin-bottom:52px; }
