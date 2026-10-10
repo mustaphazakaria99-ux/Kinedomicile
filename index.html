@@ -427,6 +427,60 @@
   .about-list svg{ width:20px; height:20px; flex:none; margin-top:2px; color:var(--gold); }
   @media (max-width:880px){ .about-wrap{ grid-template-columns:1fr; } .about-photo{ max-width:280px; margin:0 auto; aspect-ratio:1/1; } }
 
+  /* ---------- avis patients ---------- */
+  .avis-summary{ display:flex; align-items:center; gap:22px; flex-wrap:wrap; margin-bottom:36px; }
+  .avis-score{ font-family:var(--font-display); font-size:3rem; line-height:1; color:var(--pine-dark); }
+  .avis-count{ font-size:0.95rem; color:rgba(27,36,32,0.7); }
+  .stars{ display:inline-flex; gap:2px; color:var(--gold); }
+  .stars svg{ width:20px; height:20px; }
+  .stars .off{ color:rgba(27,36,32,0.2); }
+  .avis-list{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  @media (max-width:980px){ .avis-list{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:640px){ .avis-list{ grid-template-columns:1fr; } }
+  .avis-card{ background:var(--white); border:1px solid var(--line); border-radius:6px; padding:24px; display:flex; flex-direction:column; gap:12px; }
+  .avis-card .who{ font-weight:600; color:var(--pine-dark); }
+  .avis-card .meta{ font-size:0.82rem; color:rgba(27,36,32,0.55); }
+  .avis-card p{ font-size:0.96rem; color:rgba(27,36,32,0.82); white-space:pre-line; overflow-wrap:anywhere; }
+  .avis-photos{ display:flex; gap:8px; flex-wrap:wrap; }
+  .avis-photos a{ display:block; width:84px; height:84px; border-radius:4px; overflow:hidden; border:1px solid var(--line); }
+  .avis-photos img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .avis-empty{ padding:28px; background:var(--white); border-left:3px solid var(--gold); color:rgba(27,36,32,0.75); }
+  .avis-actions{ margin-top:34px; }
+
+  .avis-form-wrap{ display:none; margin-top:30px; background:var(--white); border:1px solid var(--line); border-radius:6px; padding:34px; max-width:720px; }
+  .avis-form-wrap.open{ display:block; }
+  .avis-form-wrap h3{ font-size:1.3rem; color:var(--pine-dark); margin-bottom:6px; }
+  .avis-form-wrap .hint{ font-size:0.9rem; color:rgba(27,36,32,0.65); margin-bottom:22px; }
+  .field{ display:flex; flex-direction:column; gap:6px; margin-bottom:18px; }
+  .field label, .field legend{ font-size:0.9rem; font-weight:600; color:var(--pine-dark); padding:0; }
+  .field input[type=text], .field textarea{
+    font:inherit; padding:12px 14px; border:1.5px solid var(--line); border-radius:6px; background:var(--paper); color:var(--ink);
+  }
+  .field input[type=text]:focus, .field textarea:focus{ outline:2px solid var(--gold); border-color:var(--gold); }
+  .field textarea{ min-height:120px; resize:vertical; }
+  fieldset.field{ border:none; margin:0 0 18px; padding:0; }
+  .star-input{ display:inline-flex; flex-direction:row-reverse; justify-content:flex-end; gap:4px; }
+  .star-input input{ position:absolute; opacity:0; width:1px; height:1px; }
+  .star-input label{ cursor:pointer; color:rgba(27,36,32,0.2); transition:color .15s ease, transform .15s ease; font-weight:400; }
+  .star-input label svg{ width:34px; height:34px; display:block; }
+  .star-input label:hover, .star-input label:hover ~ label,
+  .star-input input:checked ~ label{ color:var(--gold); }
+  .star-input input:focus-visible + label{ outline:2px solid var(--pine); outline-offset:3px; border-radius:4px; }
+  .photo-previews{ display:flex; gap:10px; flex-wrap:wrap; margin-top:6px; }
+  .photo-previews .pv{ position:relative; width:84px; height:84px; border-radius:4px; overflow:hidden; border:1px solid var(--line); }
+  .photo-previews img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .photo-previews button{
+    position:absolute; top:3px; right:3px; width:22px; height:22px; border-radius:50%; border:none; cursor:pointer;
+    background:rgba(27,36,32,0.8); color:#fff; font-size:14px; line-height:1;
+  }
+  .consent{ display:flex; gap:10px; align-items:flex-start; font-size:0.88rem; color:rgba(27,36,32,0.78); margin-bottom:20px; }
+  .consent input{ margin-top:3px; accent-color:var(--pine); }
+  .hp{ position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
+  .form-msg{ margin-top:16px; font-size:0.95rem; padding:12px 14px; border-radius:6px; display:none; }
+  .form-msg.ok{ display:block; background:var(--sage); color:var(--pine-dark); }
+  .form-msg.err{ display:block; background:#F6E1DC; color:#7A2A1D; }
+  .btn[disabled]{ opacity:0.6; cursor:not-allowed; }
+
   /* ---------- faq ---------- */
   .faq-list{ max-width:760px; }
   .faq-item{ border-bottom:1px solid var(--line); }
@@ -501,6 +555,7 @@
       <a href="#domicile">À domicile</a>
       <a href="#zones">Zones</a>
       <a href="#apropos">À propos</a>
+      <a href="#avis">Avis</a>
       <a href="#faq">FAQ</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -518,6 +573,7 @@
     <a href="#domicile">À domicile</a>
     <a href="#zones">Zones d'intervention</a>
     <a href="#apropos">À propos</a>
+    <a href="#avis">Avis patients</a>
     <a href="#faq">FAQ</a>
     <a href="#contact">Contact</a>
     <div class="cta-row" style="flex-wrap:wrap;">
@@ -763,8 +819,78 @@
   </div>
 </section>
 
+<!-- ============ AVIS PATIENTS ============ -->
+<section id="avis">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="arc-rule"><svg viewBox="0 0 64 32"><path d="M4 30 A 28 28 0 0 1 60 30" stroke="#C08A3E" stroke-width="3" fill="none"/></svg></div>
+      <h2>Avis de nos patients</h2>
+      <p>Vous avez déjà bénéficié d'une séance à domicile ? Partagez votre expérience pour aider les nouveaux visiteurs.</p>
+    </div>
+
+    <div class="avis-summary" id="avisSummary" hidden>
+      <span class="avis-score" id="avisScore"></span>
+      <div>
+        <div class="stars" id="avisSummaryStars" aria-hidden="true"></div>
+        <div class="avis-count" id="avisCount"></div>
+      </div>
+    </div>
+
+    <div class="avis-list" id="avisList" aria-live="polite"></div>
+
+    <div class="avis-actions">
+      <button type="button" class="btn btn-gold" id="avisOpenForm" aria-expanded="false" aria-controls="avisFormWrap">Laisser un avis</button>
+    </div>
+
+    <div class="avis-form-wrap" id="avisFormWrap">
+      <h3>Votre avis</h3>
+      <p class="hint">Votre avis sera relu avant d'être publié. Merci de ne mentionner aucune information médicale détaillée vous concernant.</p>
+      <form id="avisForm" novalidate>
+        <div class="hp" aria-hidden="true"><label>Ne pas remplir <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+
+        <fieldset class="field">
+          <legend>Votre note *</legend>
+          <div class="star-input" id="starInput">
+            <input type="radio" name="rating" id="st5" value="5"><label for="st5" title="5 étoiles"><span style="position:absolute;left:-9999px;">5 étoiles</span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.9 7.5.7-5.7 5 1.7 7.4L12 18l-6.5 4 1.7-7.4-5.7-5 7.5-.7z"/></svg></label>
+            <input type="radio" name="rating" id="st4" value="4"><label for="st4" title="4 étoiles"><span style="position:absolute;left:-9999px;">4 étoiles</span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.9 7.5.7-5.7 5 1.7 7.4L12 18l-6.5 4 1.7-7.4-5.7-5 7.5-.7z"/></svg></label>
+            <input type="radio" name="rating" id="st3" value="3"><label for="st3" title="3 étoiles"><span style="position:absolute;left:-9999px;">3 étoiles</span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.9 7.5.7-5.7 5 1.7 7.4L12 18l-6.5 4 1.7-7.4-5.7-5 7.5-.7z"/></svg></label>
+            <input type="radio" name="rating" id="st2" value="2"><label for="st2" title="2 étoiles"><span style="position:absolute;left:-9999px;">2 étoiles</span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.9 7.5.7-5.7 5 1.7 7.4L12 18l-6.5 4 1.7-7.4-5.7-5 7.5-.7z"/></svg></label>
+            <input type="radio" name="rating" id="st1" value="1"><label for="st1" title="1 étoile"><span style="position:absolute;left:-9999px;">1 étoile</span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.9 7.5.7-5.7 5 1.7 7.4L12 18l-6.5 4 1.7-7.4-5.7-5 7.5-.7z"/></svg></label>
+          </div>
+        </fieldset>
+
+        <div class="field">
+          <label for="avisName">Prénom (ou prénom + initiale) *</label>
+          <input type="text" id="avisName" name="name" maxlength="60" autocomplete="given-name" required>
+        </div>
+        <div class="field">
+          <label for="avisQuartier">Quartier (facultatif)</label>
+          <input type="text" id="avisQuartier" name="quartier" maxlength="60" placeholder="Ex. : Maarif">
+        </div>
+        <div class="field">
+          <label for="avisComment">Votre commentaire *</label>
+          <textarea id="avisComment" name="comment" maxlength="1000" required></textarea>
+        </div>
+        <div class="field">
+          <label for="avisPhotos">Photos (facultatif, 3 maximum)</label>
+          <input type="file" id="avisPhotos" accept="image/*" multiple>
+          <div class="photo-previews" id="photoPreviews"></div>
+        </div>
+
+        <label class="consent">
+          <input type="checkbox" id="avisConsent" required>
+          <span>J'accepte que mon prénom, ma note, mon commentaire et mes éventuelles photos soient publiés sur ce site. Les personnes visibles sur mes photos ont donné leur accord.</span>
+        </label>
+
+        <button type="submit" class="btn btn-gold" id="avisSubmit">Envoyer mon avis</button>
+        <div class="form-msg" id="avisMsg" role="status"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
 <!-- ============ FAQ ============ -->
-<section id="faq">
+<section id="faq" class="section-band">
   <div class="wrap">
     <div class="section-head">
       <div class="arc-rule"><svg viewBox="0 0 64 32"><path d="M4 30 A 28 28 0 0 1 60 30" stroke="#C08A3E" stroke-width="3" fill="none"/></svg></div>
@@ -780,7 +906,7 @@
         <div class="faq-a"><p>Le plus simple est d'écrire sur WhatsApp en précisant votre quartier et le motif de la consultation. Un appel téléphonique fonctionne également.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q">Faut-il une ordonnance médicale ?</button>
+        <button class="faq-q">Faut-il une ordonnance médicale ?<span class="plus"></span></button>
         <div class="faq-a"><p>Une ordonnance n'est pas toujours obligatoire, mais elle est recommandée pour certaines prises en charge, notamment post-opératoires. N'hésitez pas à demander lors de la prise de contact.</p></div>
       </div>
       <div class="faq-item">
@@ -796,7 +922,7 @@
 </section>
 
 <!-- ============ CONTACT ============ -->
-<section id="contact" class="section-band">
+<section id="contact">
   <div class="wrap">
     <div class="section-head">
       <div class="arc-rule"><svg viewBox="0 0 64 32"><path d="M4 30 A 28 28 0 0 1 60 30" stroke="#C08A3E" stroke-width="3" fill="none"/></svg></div>
@@ -843,6 +969,7 @@
     <div class="footer-links">
       <a href="#services">Services</a>
       <a href="#zones">Zones</a>
+      <a href="#avis">Avis</a>
       <a href="#faq">FAQ</a>
       <a href="https://wa.me/212690437155" target="_blank" rel="noopener">WhatsApp</a>
     </div>
@@ -926,6 +1053,169 @@
 
     if(slides.length > 1) startAutoplay();
   })();
+</script>
+
+<!-- ============ AVIS PATIENTS : script ============ -->
+<script>
+(function(){
+  // >>> Collez ici l'URL de déploiement de votre script Google (se termine par /exec)
+  const AVIS_API_URL = 'AVIS_API_URL';
+
+  const MAX_PHOTOS = 3, MAX_SIDE = 1000, JPEG_QUALITY = 0.75;
+  const STAR_PATH = 'M12 2l3 6.9 7.5.7-5.7 5 1.7 7.4L12 18l-6.5 4 1.7-7.4-5.7-5 7.5-.7z';
+  const configured = AVIS_API_URL && AVIS_API_URL.indexOf('http') === 0;
+
+  const $ = id => document.getElementById(id);
+  const listEl = $('avisList'), form = $('avisForm'), msg = $('avisMsg');
+  let photos = []; // data URLs JPEG
+
+  function starsEl(n){
+    const w = document.createElement('div');
+    w.className = 'stars';
+    w.setAttribute('role','img');
+    w.setAttribute('aria-label', n + ' étoiles sur 5');
+    for(let i=1;i<=5;i++){
+      const s = document.createElementNS('http://www.w3.org/2000/svg','svg');
+      s.setAttribute('viewBox','0 0 24 24'); s.setAttribute('fill','currentColor');
+      if(i>Math.round(n)) s.setAttribute('class','off');
+      const p = document.createElementNS('http://www.w3.org/2000/svg','path');
+      p.setAttribute('d', STAR_PATH); s.appendChild(p); w.appendChild(s);
+    }
+    return w;
+  }
+
+  function showEmpty(text){
+    listEl.innerHTML = '';
+    const d = document.createElement('div');
+    d.className = 'avis-empty'; d.textContent = text;
+    listEl.appendChild(d);
+  }
+
+  function render(reviews){
+    listEl.innerHTML = '';
+    if(!reviews.length){ showEmpty('Aucun avis publié pour le moment. Soyez le premier à partager votre expérience !'); return; }
+    const total = reviews.reduce((a,r)=>a+Number(r.rating||0),0);
+    const avg = total / reviews.length;
+    $('avisScore').textContent = avg.toFixed(1).replace('.',',');
+    const ss = $('avisSummaryStars'); ss.innerHTML=''; ss.appendChild(starsEl(avg));
+    $('avisCount').textContent = reviews.length + (reviews.length>1 ? ' avis de patients' : ' avis de patient');
+    $('avisSummary').hidden = false;
+
+    reviews.forEach(r=>{
+      const card = document.createElement('article'); card.className='avis-card';
+      card.appendChild(starsEl(r.rating));
+      const who = document.createElement('div'); who.className='who'; who.textContent = r.name || 'Patient';
+      card.appendChild(who);
+      if(r.quartier || r.date){
+        const m = document.createElement('div'); m.className='meta';
+        m.textContent = [r.quartier, r.date].filter(Boolean).join(' · ');
+        card.appendChild(m);
+      }
+      const p = document.createElement('p'); p.textContent = r.comment || ''; card.appendChild(p);
+      if(r.photos && r.photos.length){
+        const ph = document.createElement('div'); ph.className='avis-photos';
+        r.photos.forEach(id=>{
+          if(!/^[\w-]{10,}$/.test(id)) return;
+          const a = document.createElement('a');
+          a.href = 'https://drive.google.com/thumbnail?id=' + id + '&sz=w1600';
+          a.target = '_blank'; a.rel = 'noopener';
+          const img = document.createElement('img');
+          img.src = 'https://drive.google.com/thumbnail?id=' + id + '&sz=w300';
+          img.alt = 'Photo partagée par ' + (r.name || 'un patient'); img.loading = 'lazy';
+          a.appendChild(img); ph.appendChild(a);
+        });
+        card.appendChild(ph);
+      }
+      listEl.appendChild(card);
+    });
+  }
+
+  function load(){
+    if(!configured){ showEmpty('Aucun avis publié pour le moment. Soyez le premier à partager votre expérience !'); return; }
+    fetch(AVIS_API_URL)
+      .then(r=>r.json())
+      .then(d=>render(Array.isArray(d.reviews) ? d.reviews : []))
+      .catch(()=>showEmpty('Les avis ne peuvent pas être affichés pour le moment.'));
+  }
+
+  // ---- ouverture du formulaire
+  $('avisOpenForm').addEventListener('click', function(){
+    const w = $('avisFormWrap'); const open = w.classList.toggle('open');
+    this.setAttribute('aria-expanded', open);
+    if(open) w.scrollIntoView({behavior:'smooth', block:'nearest'});
+  });
+
+  // ---- photos : compression côté navigateur
+  function compress(file){
+    return new Promise((resolve,reject)=>{
+      const fr = new FileReader();
+      fr.onerror = reject;
+      fr.onload = () => {
+        const img = new Image();
+        img.onerror = reject;
+        img.onload = () => {
+          const k = Math.min(1, MAX_SIDE / Math.max(img.width, img.height));
+          const c = document.createElement('canvas');
+          c.width = Math.round(img.width*k); c.height = Math.round(img.height*k);
+          c.getContext('2d').drawImage(img,0,0,c.width,c.height);
+          resolve(c.toDataURL('image/jpeg', JPEG_QUALITY));
+        };
+        img.src = fr.result;
+      };
+      fr.readAsDataURL(file);
+    });
+  }
+  function drawPreviews(){
+    const box = $('photoPreviews'); box.innerHTML='';
+    photos.forEach((src,i)=>{
+      const d = document.createElement('div'); d.className='pv';
+      const im = document.createElement('img'); im.src=src; im.alt='Aperçu photo '+(i+1);
+      const b = document.createElement('button'); b.type='button'; b.textContent='×'; b.setAttribute('aria-label','Retirer la photo '+(i+1));
+      b.addEventListener('click',()=>{ photos.splice(i,1); drawPreviews(); });
+      d.appendChild(im); d.appendChild(b); box.appendChild(d);
+    });
+  }
+  $('avisPhotos').addEventListener('change', async function(){
+    const files = Array.from(this.files).filter(f=>f.type.indexOf('image/')===0);
+    for(const f of files){
+      if(photos.length >= MAX_PHOTOS) break;
+      try{ photos.push(await compress(f)); }catch(e){}
+    }
+    this.value=''; drawPreviews();
+  });
+
+  // ---- envoi
+  function say(text, ok){ msg.className = 'form-msg ' + (ok?'ok':'err'); msg.textContent = text; }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    msg.className='form-msg';
+    const rating = (form.querySelector('input[name=rating]:checked')||{}).value;
+    const name = form.name.value.trim();
+    const comment = form.comment.value.trim();
+    if(!rating) return say('Merci de choisir une note de 1 à 5 étoiles.');
+    if(name.length < 2) return say('Merci d\'indiquer votre prénom.');
+    if(comment.length < 10) return say('Merci d\'écrire un commentaire (10 caractères minimum).');
+    if(!$('avisConsent').checked) return say('Merci de cocher la case d\'autorisation de publication.');
+    if(!configured) return say('Le formulaire n\'est pas encore activé sur ce site.');
+
+    const btn = $('avisSubmit'); btn.disabled = true; btn.textContent = 'Envoi en cours…';
+    const payload = {
+      rating: Number(rating), name, quartier: form.quartier.value.trim(), comment,
+      photos, website: form.website.value
+    };
+    // text/plain évite la pré-requête CORS (requis pour Google Apps Script)
+    fetch(AVIS_API_URL, { method:'POST', mode:'no-cors', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify(payload) })
+      .then(()=>{
+        form.reset(); photos=[]; drawPreviews();
+        say('Merci ! Votre avis a bien été envoyé. Il sera publié après relecture.', true);
+      })
+      .catch(()=>say('Envoi impossible pour le moment. Vérifiez votre connexion et réessayez.'))
+      .finally(()=>{ btn.disabled=false; btn.textContent='Envoyer mon avis'; });
+  });
+
+  load();
+})();
 </script>
 
 </body>
