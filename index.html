@@ -9,9 +9,9 @@
 <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
 <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kiné à Domicile Casablanca | Kinésithérapeute & Physiothérapeute à Domicile</title>
-<meta name="description" content="Kinésithérapeute à domicile à Casablanca : kiné à domicile, kinésithérapie orthopédique, neurologique et post-opératoire, massages thérapeutiques. Intervention rapide dans tous les quartiers de Casablanca. RDV par WhatsApp ou téléphone.">
-<meta name="keywords" content="kiné à domicile, kinésithérapie à domicile, kinésithérapeute à domicile, kiné, kinésithérapie, physiothérapeute à domicile, kinésithérapeute Casablanca, مروض طبي, ترويض طبي, معالج فيزيائي, ترويض طبي في المنزل, معالج فيزيائي في المنزل">
+<title>Kiné à Domicile | Kinésithérapeute & Physiothérapeute à Domicile</title>
+<meta name="description" content="Kinésithérapeute à domicile : kinésithérapie orthopédique, neurologique et post-opératoire, massages thérapeutiques. Interventions à Casablanca, Rabat et leurs environs. RDV par WhatsApp ou téléphone.">
+<meta name="keywords" content="kiné à domicile, kinésithérapie à domicile, kinésithérapeute à domicile, kiné, kinésithérapie, physiothérapeute à domicile, kinésithérapeute Casablanca, kinésithérapeute Rabat, مروض طبي, ترويض طبي, معالج فيزيائي, ترويض طبي في المنزل, معالج فيزيائي في المنزل">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="author" content="Kiné à Domicile">
 <link rel="canonical" href="https://kinedomicile.pro/">
@@ -34,16 +34,16 @@
 <!-- Open Graph / Facebook / WhatsApp -->
 <meta property="og:type" content="business.business">
 <meta property="og:locale" content="fr_MA">
-<meta property="og:site_name" content="Kiné à Domicile Casablanca">
-<meta property="og:title" content="Kiné à Domicile Casablanca | Kinésithérapeute & Physiothérapeute à Domicile">
-<meta property="og:description" content="Kinésithérapeute à domicile à Casablanca : rééducation, kinésithérapie orthopédique, neurologique et post-opératoire. Intervention rapide dans tous les quartiers de Casablanca. RDV par WhatsApp.">
+<meta property="og:site_name" content="Kiné à Domicile">
+<meta property="og:title" content="Kiné à Domicile | Kinésithérapeute & Physiothérapeute à Domicile">
+<meta property="og:description" content="Kinésithérapeute à domicile : rééducation, kinésithérapie orthopédique, neurologique et post-opératoire. Casablanca, Rabat et environs. RDV par WhatsApp.">
 <meta property="og:url" content="https://kinedomicile.pro/">
 <meta property="og:image" content="https://kinedomicile.pro/og-image.jpg">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Kiné à Domicile Casablanca | Kinésithérapeute & Physiothérapeute à Domicile">
-<meta name="twitter:description" content="Kinésithérapeute à domicile à Casablanca : rééducation, kinésithérapie orthopédique, neurologique et post-opératoire. RDV par WhatsApp ou téléphone.">
+<meta name="twitter:title" content="Kiné à Domicile | Kinésithérapeute & Physiothérapeute à Domicile">
+<meta name="twitter:description" content="Kinésithérapeute à domicile : rééducation, kinésithérapie orthopédique, neurologique et post-opératoire. RDV par WhatsApp ou téléphone.">
 <meta name="twitter:image" content="https://kinedomicile.pro/og-image.jpg">
 
 <!-- Google Search Console : remplacez CODE_DE_VERIFICATION par le code fourni par Search Console (Paramètres > Propriété > Vérification par balise HTML) -->
@@ -53,15 +53,18 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+<!-- Carte (Leaflet + OpenStreetMap, gratuit, sans clé API) -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
 <!-- Données structurées : entreprise locale de kinésithérapie à domicile -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Physiotherapy",
   "@id": "https://kinedomicile.pro/#business",
-  "name": "Kiné à Domicile Casablanca",
-  "alternateName": "Kiné à Domicile",
-  "description": "Kinésithérapeute à domicile à Casablanca : rééducation post-opératoire, kinésithérapie orthopédique et neurologique, massages thérapeutiques, suivi mobilité réduite.",
+  "name": "Kiné à Domicile",
+  "alternateName": "Kiné à Domicile Maroc",
+  "description": "Kinésithérapeute à domicile : rééducation post-opératoire, kinésithérapie orthopédique et neurologique, massages thérapeutiques, suivi mobilité réduite.",
   "url": "https://kinedomicile.pro/",
   "telephone": "+212690437155",
   "priceRange": "$$",
@@ -79,26 +82,16 @@
   },
   "areaServed": [
     { "@type": "City", "name": "Casablanca" },
-    { "@type": "Place", "name": "Maarif" },
-    { "@type": "Place", "name": "Gauthier" },
-    { "@type": "Place", "name": "Racine" },
-    { "@type": "Place", "name": "Bourgogne" },
-    { "@type": "Place", "name": "Anfa" },
-    { "@type": "Place", "name": "Ain Diab" },
-    { "@type": "Place", "name": "Californie" },
-    { "@type": "Place", "name": "Oasis" },
-    { "@type": "Place", "name": "Sidi Belyout" },
-    { "@type": "Place", "name": "Hay Hassani" },
-    { "@type": "Place", "name": "Ain Sebaâ" },
-    { "@type": "Place", "name": "Sidi Maarouf" },
-    { "@type": "Place", "name": "Bourgogne Ouest" },
-    { "@type": "Place", "name": "Val Fleuri" },
-    { "@type": "Place", "name": "Dar Bouazza" },
+    { "@type": "City", "name": "Mohammédia" },
     { "@type": "Place", "name": "Had Soualem" },
+    { "@type": "Place", "name": "Dar Bouazza" },
     { "@type": "Place", "name": "Bouskoura" },
     { "@type": "Place", "name": "Nouaceur" },
     { "@type": "Place", "name": "Tit Mellil" },
-    { "@type": "Place", "name": "Mohammédia" }
+    { "@type": "City", "name": "Rabat" },
+    { "@type": "City", "name": "Salé" },
+    { "@type": "City", "name": "Témara" },
+    { "@type": "City", "name": "Skhirat" }
   ],
   "openingHoursSpecification": {
     "@type": "OpeningHoursSpecification",
@@ -402,18 +395,50 @@
   .adv-item p{ font-size:0.95rem; color:rgba(255,253,249,0.72); }
   @media (max-width:700px){ .adv-grid{ grid-template-columns:1fr; } }
 
-  /* ---------- zones ---------- */
+  /* ---------- zones + carte ---------- */
   .zones-wrap{ display:grid; grid-template-columns:0.9fr 1.1fr; gap:56px; align-items:start; }
+  .zone-group-title{
+    margin:26px 0 12px; font-size:0.8rem; font-weight:700; letter-spacing:.08em;
+    text-transform:uppercase; color:var(--gold-dark);
+  }
+  .zone-group-title.rabat{ color:var(--pine); }
   .zone-pills{ display:flex; flex-wrap:wrap; gap:10px; }
   .zone-pill{
+    display:inline-flex; align-items:center; gap:8px; cursor:pointer;
     padding:10px 18px; border-radius:100px; background:var(--white); border:1px solid var(--line);
-    font-size:0.92rem; font-weight:500; color:var(--pine-dark);
+    font:inherit; font-size:0.92rem; font-weight:500; color:var(--pine-dark);
+    transition:background .2s ease, border-color .2s ease;
   }
+  .zone-pill::before{
+    content:''; width:8px; height:8px; border-radius:50%; background:var(--gold); flex:none;
+  }
+  .zone-pill[data-group="rabat"]::before{ background:var(--pine); }
+  .zone-pill:hover, .zone-pill.active{ background:var(--sage); border-color:var(--pine); }
   .zones-note{
     margin-top:26px; padding:20px 22px; background:var(--white); border-left:3px solid var(--gold);
     font-size:0.94rem; color:rgba(27,36,32,0.75);
   }
-  @media (max-width:880px){ .zones-wrap{ grid-template-columns:1fr; } }
+  .zones-map-card{
+    background:var(--white); border:1px solid var(--line); border-radius:8px; overflow:hidden;
+    position:sticky; top:96px;
+  }
+  #zonesMap{ width:100%; height:460px; background:var(--paper-2); z-index:1; }
+  .zones-map-foot{
+    display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;
+    padding:12px 16px; font-size:0.85rem; color:rgba(27,36,32,0.7); border-top:1px solid var(--line);
+  }
+  .zones-map-foot a{ font-weight:600; color:var(--pine-dark); }
+  .zone-label{
+    background:var(--pine-dark); color:#fff; border:none; border-radius:100px;
+    padding:4px 10px; font:600 12px 'Inter',sans-serif; box-shadow:0 2px 6px rgba(0,0,0,.25);
+  }
+  .zone-label::before{ display:none; }
+  .labels-hidden .zone-label.minor{ display:none; }
+  @media (max-width:880px){
+    .zones-wrap{ grid-template-columns:1fr; }
+    .zones-map-card{ position:static; }
+    #zonesMap{ height:360px; }
+  }
 
   /* ---------- about ---------- */
   .about-wrap{ display:grid; grid-template-columns:0.85fr 1.15fr; gap:56px; align-items:center; }
@@ -593,7 +618,7 @@
       <div class="wrap hero-slide-content">
         <span class="hero-badge">Kiné à domicile</span>
         <h1>Retrouvez votre mobilité<br>en toute sérénité</h1>
-        <p class="lead">Exercices de renforcement avec bande de résistance, réalisés chez vous, à Casablanca.</p>
+        <p class="lead">Exercices de renforcement avec bande de résistance, réalisés chez vous.</p>
         <div class="hero-actions">
           <a class="btn btn-gold" href="https://wa.me/212690437155" target="_blank" rel="noopener">Prendre rendez-vous sur WhatsApp</a>
           <a class="btn btn-ghost-light" href="tel:+212690437155">Appeler maintenant</a>
@@ -606,7 +631,7 @@
       <div class="wrap hero-slide-content">
         <span class="hero-badge">Kiné à domicile</span>
         <h1>Un accompagnement<br>à chaque étape</h1>
-        <p class="lead">Accompagnement à la marche avec déambulateur, chez vous, à Casablanca.</p>
+        <p class="lead">Accompagnement à la marche avec déambulateur, chez vous.</p>
         <div class="hero-actions">
           <a class="btn btn-gold" href="https://wa.me/212690437155" target="_blank" rel="noopener">Prendre rendez-vous sur WhatsApp</a>
           <a class="btn btn-ghost-light" href="tel:+212690437155">Appeler maintenant</a>
@@ -657,7 +682,7 @@
       <div class="hero-slide-overlay"></div>
       <div class="wrap hero-slide-content">
         <span class="hero-badge">Kiné à domicile</span>
-        <h1>Des séances personnalisées<br>chez vous, à Casablanca</h1>
+        <h1>Des séances personnalisées<br>chez vous</h1>
         <p class="lead">Étirements guidés au sol, dans le calme de votre propre espace.</p>
         <div class="hero-actions">
           <a class="btn btn-gold" href="https://wa.me/212690437155" target="_blank" rel="noopener">Prendre rendez-vous sur WhatsApp</a>
@@ -760,39 +785,51 @@
   </div>
 </section>
 
-<!-- ============ ZONES ============ -->
+<!-- ============ ZONES + CARTE ============
+  Pour ajouter une zone plus tard : copiez un <button class="zone-pill"> ci-dessous,
+  changez le nom et les coordonnées (data-lat / data-lng). La carte se met à jour toute seule.
+  data-group : "casablanca" (point doré) ou "rabat" (point vert). Pour un nouveau groupe,
+  ajoutez un bloc .zone-group-title + .zone-pills et un data-group="nom" (point vert par défaut).
+  data-main="1" : le nom reste affiché sur la carte même en vue d'ensemble.
+-->
 <section id="zones">
   <div class="wrap zones-wrap">
     <div>
       <div class="arc-rule"><svg viewBox="0 0 64 32"><path d="M4 30 A 28 28 0 0 1 60 30" stroke="#C08A3E" stroke-width="3" fill="none"/></svg></div>
-      <h2>Zones d'intervention : kiné à domicile à Casablanca</h2>
-      <p style="margin-top:14px;color:rgba(27,36,32,0.72);">Notre kinésithérapeute à domicile se déplace dans les quartiers de Casablanca ainsi que dans plusieurs communes avoisinantes. En dehors de cette liste, contactez-nous : une intervention reste parfois possible.</p>
+      <h2>Zones d'intervention</h2>
+      <p style="margin-top:14px;color:rgba(27,36,32,0.72);">Notre kinésithérapeute se déplace à domicile à Casablanca, à Rabat et dans leurs environs. Cliquez sur une zone pour la situer sur la carte. En dehors de cette liste, contactez-nous : une intervention reste parfois possible.</p>
+
+      <div class="zone-group-title">Casablanca et environs</div>
+      <div class="zone-pills" id="zonePills">
+        <button type="button" class="zone-pill" data-group="casablanca" data-main="1" data-lat="33.5731" data-lng="-7.5898" data-zoom="12">Casablanca</button>
+        <button type="button" class="zone-pill" data-group="casablanca" data-lat="33.4400" data-lng="-7.8600" data-zoom="13">Had Soualem</button>
+        <button type="button" class="zone-pill" data-group="casablanca" data-lat="33.5128" data-lng="-7.8156" data-zoom="13">Dar Bouazza</button>
+        <button type="button" class="zone-pill" data-group="casablanca" data-lat="33.4489" data-lng="-7.6483" data-zoom="13">Bouskoura</button>
+        <button type="button" class="zone-pill" data-group="casablanca" data-lat="33.6866" data-lng="-7.3830" data-zoom="13">Mohammédia</button>
+        <button type="button" class="zone-pill" data-group="casablanca" data-lat="33.3667" data-lng="-7.5833" data-zoom="13">Nouaceur</button>
+        <button type="button" class="zone-pill" data-group="casablanca" data-lat="33.5594" data-lng="-7.4872" data-zoom="13">Tit Mellil</button>
+      </div>
+
+      <div class="zone-group-title rabat">Rabat et environs</div>
+      <div class="zone-pills">
+        <button type="button" class="zone-pill" data-group="rabat" data-main="1" data-lat="34.0209" data-lng="-6.8416" data-zoom="12">Rabat</button>
+        <button type="button" class="zone-pill" data-group="rabat" data-lat="34.0531" data-lng="-6.7985" data-zoom="13">Salé</button>
+        <button type="button" class="zone-pill" data-group="rabat" data-lat="33.9279" data-lng="-6.9068" data-zoom="13">Témara</button>
+        <button type="button" class="zone-pill" data-group="rabat" data-lat="33.8500" data-lng="-7.0333" data-zoom="13">Skhirat</button>
+      </div>
+
       <div class="zones-note">
-        <strong>Vous ne voyez pas votre quartier ?</strong><br>
+        <strong>Vous ne voyez pas votre ville ou votre quartier ?</strong><br>
         Écrivez-nous sur WhatsApp avec votre adresse : nous confirmons rapidement si le déplacement est possible.
       </div>
     </div>
-    <div class="zone-pills">
-      <span class="zone-pill">Maarif</span>
-      <span class="zone-pill">Gauthier</span>
-      <span class="zone-pill">Racine</span>
-      <span class="zone-pill">Bourgogne</span>
-      <span class="zone-pill">Anfa</span>
-      <span class="zone-pill">Ain Diab</span>
-      <span class="zone-pill">Californie</span>
-      <span class="zone-pill">Oasis</span>
-      <span class="zone-pill">Sidi Belyout</span>
-      <span class="zone-pill">Hay Hassani</span>
-      <span class="zone-pill">Ain Sebaâ</span>
-      <span class="zone-pill">Sidi Maarouf</span>
-      <span class="zone-pill">Bourgogne Ouest</span>
-      <span class="zone-pill">Val Fleuri</span>
-      <span class="zone-pill">Dar Bouazza</span>
-      <span class="zone-pill">Had Soualem</span>
-      <span class="zone-pill">Bouskoura</span>
-      <span class="zone-pill">Nouaceur</span>
-      <span class="zone-pill">Tit Mellil</span>
-      <span class="zone-pill">Mohammédia</span>
+
+    <div class="zones-map-card">
+      <div id="zonesMap" role="region" aria-label="Carte des zones d'intervention"></div>
+      <div class="zones-map-foot">
+        <span>Zones d'intervention de kiné à domicile</span>
+        <a href="https://www.google.com/maps/search/?api=1&query=Casablanca%2C+Maroc" target="_blank" rel="noopener">Ouvrir dans Google Maps</a>
+      </div>
     </div>
   </div>
 </section>
@@ -877,7 +914,7 @@
       <div class="arc-rule"><svg viewBox="0 0 64 32"><path d="M4 30 A 28 28 0 0 1 60 30" stroke="#C08A3E" stroke-width="3" fill="none"/></svg></div>
       <h2>À propos</h2>
       <p style="margin-top:16px;font-size:1.05rem;color:rgba(27,36,32,0.75);max-width:56ch;">
-        Kinésithérapeute diplômé(e) d'État, notre praticien intervient à domicile à Casablanca. Une approche humaine et personnalisée, centrée sur les besoins réels de chaque patient — qu'il s'agisse d'une rééducation ponctuelle ou d'un suivi de longue durée.
+        Kinésithérapeute diplômé(e) d'État, notre praticien intervient à domicile. Une approche humaine et personnalisée, centrée sur les besoins réels de chaque patient — qu'il s'agisse d'une rééducation ponctuelle ou d'un suivi de longue durée.
       </p>
       <ul class="about-list">
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Diplôme d'État en kinésithérapie</li>
@@ -948,7 +985,7 @@
         </div>
         <div class="contact-row">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          <span>Casablanca &amp; environs — voir les zones d'intervention</span>
+          <span>Casablanca, Rabat &amp; environs — voir les zones d'intervention</span>
         </div>
         <div class="contact-row">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
@@ -975,7 +1012,7 @@
     </div>
   </div>
   <div class="wrap footer-bottom">
-    © <span id="year"></span> Kiné à Domicile Casablanca. Kinésithérapie à domicile — Casablanca, Maroc.
+    © <span id="year"></span> Kiné à Domicile. Kinésithérapie à domicile — Maroc.
     <br>
     <span lang="ar" dir="rtl" style="display:inline-block;margin-top:4px;">مروض طبي / معالج فيزيائي في المنزل بالدار البيضاء — ترويض طبي في المنزل</span>
   </div>
@@ -1053,6 +1090,59 @@
 
     if(slides.length > 1) startAutoplay();
   })();
+</script>
+
+<!-- ============ ZONES : carte ============ -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+(function(){
+  const el = document.getElementById('zonesMap');
+  if(!el || typeof L === 'undefined') return;
+
+  const pills = Array.from(document.querySelectorAll('.zone-pill[data-lat]'));
+  if(!pills.length) return;
+
+  const COLORS = { casablanca:'#C08A3E', rabat:'#2C4A3E' };
+  const map = L.map(el, { scrollWheelZoom:false, tap:false });
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom:18, attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+  }).addTo(map);
+
+  const bounds = [];
+  const items = pills.map(p=>{
+    const ll = [parseFloat(p.dataset.lat), parseFloat(p.dataset.lng)];
+    const main = p.dataset.main === '1';
+    const name = p.textContent.trim();
+    const m = L.circleMarker(ll, {
+      radius: main ? 11 : 8, color:'#FFFDF9', weight:2.5,
+      fillColor: COLORS[p.dataset.group] || '#2C4A3E', fillOpacity:1
+    }).addTo(map);
+    m.bindTooltip(name, { permanent:true, direction:'top', offset:[0,-8], className:'zone-label' + (main ? '' : ' minor') });
+    m.bindPopup('<strong>'+name+'</strong><br>Kiné à domicile<br><a href="https://wa.me/212690437155" target="_blank" rel="noopener">Prendre RDV sur WhatsApp</a>');
+    bounds.push(ll);
+    const item = { pill:p, marker:m, ll, zoom: parseInt(p.dataset.zoom,10) || 13 };
+    m.on('click', ()=> setActive(item));
+    p.addEventListener('click', ()=>{
+      setActive(item);
+      map.flyTo(ll, item.zoom, { duration:0.8 });
+      m.openPopup();
+    });
+    return item;
+  });
+
+  function setActive(item){ items.forEach(i=>i.pill.classList.toggle('active', i===item)); }
+
+  // En vue d'ensemble, seuls les noms principaux sont affichés ; les autres apparaissent au zoom.
+  function toggleLabels(){ el.classList.toggle('labels-hidden', map.getZoom() < 10); }
+  map.on('zoomend', toggleLabels);
+
+  map.fitBounds(bounds, { padding:[40,40] });
+  toggleLabels();
+
+  // Évite de bloquer le défilement de la page : zoom molette seulement après un clic sur la carte
+  map.on('click', ()=> map.scrollWheelZoom.enable());
+  map.on('mouseout', ()=> map.scrollWheelZoom.disable());
+})();
 </script>
 
 <!-- ============ AVIS PATIENTS : script ============ -->
